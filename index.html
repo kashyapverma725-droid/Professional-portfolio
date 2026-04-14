@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kashyap Verma | Professional Portfolio</title>
+    <style>
+        /* ===================================================
+           COLOR & THEME SETTINGS
+        =================================================== */
+        :root {
+            --background: #ffffff;
+            --primary-text: #111111;
+            --secondary-text: #666666;
+            --border: #eeeeee;
+            --skill-bg: #f5f5f5;
+            --nav-height: 70px;
+        }
+
+        /* ===================================================
+           DESIGN ENGINE
+        =================================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--background);
+            color: var(--primary-text);
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        /* MINIMAL NAVBAR */
+        .nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            height: var(--nav-height);
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-weight: 800;
+            font-size: 1.2rem;
+            letter-spacing: -1.5px;
+            text-decoration: none;
+            color: var(--primary-text);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--secondary-text);
+            font-size: 13px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-text);
+        }
+
+        /* REDESIGNED HERO SECTION (Left Aligned) */
+        .hero {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 120px 0 80px 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 20px;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: all 0.4s ease;
+            border: 1px solid var(--border);
+        }
+
+        .profile-img:hover {
+            filter: grayscale(0%);
+            transform: scale(1.02);
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            letter-spacing: -4px;
+            line-height: 0.9;
+            margin-bottom: 24px;
+        }
+
+        .tagline {
+            font-size: 1.25rem;
+            color: var(--secondary-text);
+            max-width: 500px;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .contact-links a {
+            color: var(--primary-text);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            border-bottom: 1px solid var(--primary-text);
+            padding-bottom: 2px;
+            transition: opacity 0.2s;
+        }
+
+        .contact-links a:hover {
+            opacity: 0.6;
+        }
+
+        /* CONTENT SECTIONS */
+        section {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 40px;
+            padding: 80px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h2 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--secondary-text);
+            padding-top: 5px;
+        }
+
+        .content-block {
+            margin-bottom: 48px;
+        }
+
+        .content-block:last-child {
+            margin-bottom: 0;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            letter-spacing: -0.5px;
+        }
+
+        .sub-heading {
+            font-weight: 600;
+            color: var(--primary-text);
+            margin-bottom: 8px;
+            display: block;
+            font-size: 0.95rem;
+        }
+
+        .date {
+            color: var(--secondary-text);
+            font-size: 0.85rem;
+            margin-bottom: 16px;
+            display: block;
+            font-weight: 500;
+        }
+
+        p {
+            color: var(--secondary-text);
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            position: relative;
+            padding-left: 20px;
+            color: var(--secondary-text);
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: var(--primary-text);
+            font-weight: bold;
+        }
+
+        /* SKILLS GRID */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding-left: 0;
+        }
+
+        .skills-grid li {
+            background: var(--skill-bg);
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 13px;
+            color: var(--primary-text);
+            font-weight: 600;
+            border: 1px solid transparent;
+        }
+
+        .skills-grid li::before {
+            content: "";
+            padding: 0;
+        }
+
+        .skills-grid li:hover {
+            border-color: #ddd;
+        }
+
+        /* FOOTER */
+        footer {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 0;
+            color: var(--secondary-text);
+            font-size: 12px;
+            text-align: left;
+        }
+
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 10px;
+            }
+
+            .hero {
+                flex-direction: column-reverse;
+                text-align: left;
+                padding: 60px 0;
+                align-items: flex-start;
+            }
+
+            h1 {
+                font-size: 2.8rem;
+                letter-spacing: -2px;
+            }
+
+            .profile-img {
+                width: 120px;
+                height: 120px;
+                margin-bottom: 20px;
+            }
+
+            section {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 50px 0;
+            }
+
+            h2 {
+                border-bottom: 1px solid var(--border);
+                padding-bottom: 10px;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+    
+</head>
+
+<body>
+    
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">Kashyap Verma</a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Kashyap Verma</h1>
+            <p class="tagline">
+               A BBA student passionate about marketing research and professional branding. Always looking for the next big challenge.                                         <p>This is my professional picture.</p>
+            </p>
+            <div class="contact-links">
+                <a href="kashyapverma725@gmail.com">Email</a>
+                <a href="https://www.linkedin.com/in/kashyap-verma-483919296">LinkedIn</a>
+                <a href="https://github.com/kashyapverma725-droid/Portfolio">GitHub</a>
+                <a href="9044911244">Contact No</a>
+            </div>
+        </div>
+        <img src="Portfolio pic.jpeg" width="400" height="430" 
+        alt="This is my professional picture.">
+
+    </header>
+
+    <section id="experience">
+        <h2>About </h2>
+        <div class="content-wrapper">
+            <div class="content-block">
+                <h3>Introduction</h3>
+                <div class="sub-heading"> BBA Student | Digital Marketing and Data Enthusiast </div>
+                <div class="date">Aug 2025 — Present</div>
+                <p>I am a BBA student with a strong interest in business, digital marketing, and technology. I have experience working in team-based projects and have taken on responsibilities similar to a technical lead, including coordinating tasks and contributing to project development. I am passionate about learning new skills and applying them in practical situations. I am a quick learner with good communication and problem-solving skills, aiming to build a strong professional career.</p>
+                <ul>
+                    <li> Certified Digital Marketer.</li>
+                    <li> Student Coordinater.</li>
+                </ul>
+            </div>
+
+            <div class="content-block">
+                <h3>Experience</h3>
+                <div class="sub-heading">BBA student| Digital Marketing Deta Enthusiast </div>
+                <div class="date">March 2024 — Present</div>
+                <p>Fresher with a strong foundation in business, digital marketing, and data analysis. Skilled in MS Excel, communication, and problem-solving. Eager to learn, grow, and contribute in a professional environment..</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        <div class="content-wrapper">
+            <div class="content-block">
+                <h3>Bachelor of Business Administration</h3>
+                <div class="sub-heading">Kailash Institute of Management</div>
+                <div class="date">2025 — 2028</div>
+                <p></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="content-wrapper">
+            <div class="content-block">
+                <h3>Project 1:Social Media Marketing Strategy</h3>
+                <p>Created a basic social media marketing for a small business including content ideas, posting 
+                    schedule and audience targeting.</p>
+                <div class="contact-links" style="margin-top: 10px;">
+                    <a href="#" style="font-size: 12px; border: none; font-weight: 700;"></a>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>Project 2: Excel Data analysis Dashboard</h3>
+                <p>Designed a simple dashboard using MS Excel to analyze and visulize sample business
+                    data using charts and formulas.
+                </p>
+            </div>
+        </div>
+
+        <h4> Project 3: Market Research Study </h4>
+        <P> Conducted a small research study on customer preferences and analyZed the results to 
+            identify trends.</P>
+
+    </section>
+
+    <section id="skills">
+        <h2> Skills </h2>
+        <div class="content-wrapper">
+            <ul class="skills-grid">
+                <li> Digital marketing </li>
+                <li> Business analysis </li>
+                <li> Data visualisation & Interpretation </li>
+                <li> Market research</li>
+                <li> Communication & Presentation skills </li>
+                <li> Teamwork </li>
+                <li> MS office (Word, Excel, Powerpoint)</li>
+                <li> SEO & SMM</li>
+                <li> Basic Statistics </li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2> Certification </h2>
+        <div class="content-wrapper">
+            <ul class="skills-grid">
+                <li> Digital marketing </li>
+                <li> Advanced Excel with AI (XLOOKUP/VLOOKUP,INDEX,Formulas,Charts and Pivot/Tableu ) </li>
+                <li> Analysis </li>
+                <li> Basic AI Tools</li>
+                
+            </ul>
+
+            <p>Thank you for taking the time to learn about my background and aspirations. I'm excited about the possibility of contributing to your organization and growing as a professional. Let's connect and explore how we can create mutual value together. Whether you have an internship opportunity, mentorship possibility, or simply want to network, I'd love to hear from you.</p>
+    <footer>
+        <p>&copy; 2026 Kashyap Verma. All rights reserved.</p>
+    </footer>
+</body>
+</html>
